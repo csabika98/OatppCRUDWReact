@@ -1,128 +1,131 @@
-# Oatpp(Oat++) Example-CRUD with React
+# 🛠️ Oatpp (Oat++) Example-CRUD with React
 
-## Screenshots
-![img.png](screenshots/img.png)
-![img_1.png](screenshots/img_1.png)
+---
 
-## Information:
-## In order to build and use this APP on Windows 
-* install MSYS2
+## 🖼️ Screenshots
 
-Steps:
-* https://www.msys2.org/
-* Open MSYS2 MSYS and update the packages
-```
-1. pacman -Syu
-```
-* Terminal will be closed, Open MYSYS2 MYSYS again
-```
-2. pacman -Su
-```
-```
-3. pacman -Sy
-```
-* Open MSYS2 MinGW x64, and install these packages
-```
-4. pacman -S mingw-w64-x86_64-gcc
-5. pacman -S mingw-w64-x86_64-gdb
-6. pacman -S mingw-w64-x86_64-make
-7. pacman -S mingw-w64-x86_64-cmake
-```
-* Set ```C:\msys64\mingw64\bin``` as PATH (ENV in Windows)  
-* Run the Powershell script which can be found in the ```utility``` folder
-* Done
+Take a look at some visuals from the application:
 
+<p align="center">
+  <img src="screenshots/img.png" alt="Oatpp Example Screenshot 1" width="600">
+  <img src="screenshots/img_1.png" alt="Oatpp Example Screenshot 2" width="600">
+</p>
 
+---
 
-A complete example of a "CRUD" service (UserService) built with Oat++.
+## 📝 Information
 
-In this example:
+### 🛠️ Building and Running the App on Windows
 
-- How to create CRUD endpoint.
-- How to use [oatpp ORM](https://oatpp.io/docs/components/orm/#high-level-overview) - SQLite example.
-- How to document API with Swagger-UI and OpenApi 3.0.0.
+To build and use this application on Windows, follow these steps:
 
-More about Oat++:
+1. **Install MSYS2**: Download and install MSYS2 from the official website.
+   - [MSYS2 Installation Guide](https://www.msys2.org/)
+
+2. **Update Packages**: Open **MSYS2 MSYS** and run the following commands to update your packages:
+   pacman -Syu
+
+   - **Note**: The terminal will close after the first update. Reopen **MSYS2 MSYS** and continue with:
+   pacman -Su
+   pacman -Sy
+
+3. **Install Required Packages**: Open **MSYS2 MinGW x64** and install the necessary packages:
+   pacman -S mingw-w64-x86_64-gcc
+   pacman -S mingw-w64-x86_64-gdb
+   pacman -S mingw-w64-x86_64-make
+   pacman -S mingw-w64-x86_64-cmake
+
+4. **Set Path**: Add `C:\msys64\mingw64\bin` to your system PATH (Environment Variables in Windows).
+
+5. **Run the Script**: Execute the PowerShell script located in the `utility` folder.
+
+6. **Done**: The application should now be ready to use!
+
+---
+
+## 🌟 About This Project
+
+This project provides a complete example of a "CRUD" service (UserService) built with Oat++. It demonstrates:
+
+- How to create CRUD endpoints.
+- How to use [Oatpp ORM](https://oatpp.io/docs/components/orm/#high-level-overview) with an SQLite example.
+- How to document APIs with Swagger-UI and OpenApi 3.0.0.
+
+Learn more about Oat++:
 
 - [Oat++ Website](https://oatpp.io/)
-- [Oat++ Github Repository](https://github.com/oatpp/oatpp)
+- [Oat++ GitHub Repository](https://github.com/oatpp/oatpp)
 - [Get Started](https://oatpp.io/docs/start)
 
-## Overview
+---
 
-This project is using the following oatpp modules:
+## 🗂️ Project Layout
 
-- [oatpp](https://github.com/oatpp/oatpp) 
-- [oatpp-swagger](https://github.com/oatpp/oatpp-swagger)
-- [oatpp-sqlite](https://github.com/oatpp/oatpp-sqlite)
-
-### Project layout
-
+Here’s a quick overview of the project structure:
 ```
-|- CMakeLists.txt                        // projects CMakeLists.txt
+|- CMakeLists.txt                        // Project's CMakeLists.txt
 |- sql/                                  // SQL migration scripts for SQLite database
 |- src/
-|   |
-|   |- controller/                       // Folder containing REST Controllers (UserController)
-|   |- db/                               // Folder containing the database client
-|   |- dto/                              // DTOs are declared here
-|   |- service/                          // Service business logic classes (UserService)
-|   |- AppComponent.hpp                  // Service config
-|   |- DatabaseComponent.hpp             // Database config
-|   |- SwaggerComponent.hpp              // Swagger-UI config
-|   |- App.cpp                           // main() is here
-|
-|- test/                                 // test folder
-|- utility/install-oatpp-modules.sh      // utility script to install required oatpp-modules.
+|   |- controller/                       // REST Controllers (UserController)
+|   |- db/                               // Database client
+|   |- dto/                              // Data Transfer Objects (DTOs)
+|   |- service/                          // Business logic classes (UserService)
+|   |- AppComponent.hpp                  // Service configuration
+|   |- DatabaseComponent.hpp             // Database configuration
+|   |- SwaggerComponent.hpp              // Swagger-UI configuration
+|   |- App.cpp                           // Main application entry point (main())
+|- test/                                 // Tests folder
+|- utility/install-oatpp-modules.sh      // Utility script to install required Oatpp modules
 ```
 
----
 
-### Build and Run
+## ⚙️ Build and Run
 
-#### Using CMake
+### 🔨 Using CMake
 
-##### Pre Requirements
+#### Pre-requirements
 
-- `oatpp` 
+Ensure that the following Oatpp modules are installed:
+
+- `oatpp`
 - `oatpp-swagger`
-- `oatpp-sqlite` with `-DOATPP_SQLITE_AMALGAMATION=ON` cmake flag.
+- `oatpp-sqlite` (with `-DOATPP_SQLITE_AMALGAMATION=ON` CMake flag).
 
-**Note:** You may run `utility/install-oatpp-modules.sh` script to install required oatpp modules.
+**Note:** You can run the `utility/install-oatpp-modules.sh` script to install the required Oatpp modules.
 
-##### Build Project
+#### Building the Project
 
-```
-$ mkdir build && cd build
-$ cmake ..
-$ make 
-$ ./crud-exe        # - run application.
-```
+   mkdir build && cd build
+   cmake ..
+   make
+   ./crud-exe  # Run the application
 
-#### In Docker
+### 🐳 Using Docker
 
-```
-$ docker build -t example-crud .
-$ docker run -p 8000:8000 -t example-crud
-```
+You can also build and run the application using Docker:
+
+   docker build -t example-crud .
+   docker run -p 8000:8000 -t example-crud
 
 ---
 
-### Endpoints 
+## 📋 API Endpoints
 
-#### HTML
+### 🌐 HTML
 
-|HTTP Method|URL|Description|
-|---|---|---|
-|`GET`|http://localhost:8000/ | Root page |
-|`GET`|http://localhost:8000/swagger/ui | Swagger UI page |
+| HTTP Method | URL                                   | Description      |
+|-------------|---------------------------------------|------------------|
+| `GET`       | `http://localhost:8000/`              | Root page        |
+| `GET`       | `http://localhost:8000/swagger/ui`    | Swagger UI page  |
 
-#### User Service
+### 👤 User Service
 
-|HTTP Method|URL|Description|
-|---|---|---|
-|`POST`|http://localhost:8000/users | Create new User |
-|`PUT`|http://localhost:8000/users/{userId} | Update User by ID |
-|`GET`|http://localhost:8000/users/{userId} | Get User by ID |
-|`DELETE`|http://localhost:8000/users/{userId} | Delete User by ID |
-|`GET`|http://localhost:8000/users/offset/{offset}/limit/{limit} | Get All Users with Paging |
+| HTTP Method | URL                                                       | Description           |
+|-------------|-----------------------------------------------------------|-----------------------|
+| `POST`      | `http://localhost:8000/users`                              | Create new User       |
+| `PUT`       | `http://localhost:8000/users/{userId}`                     | Update User by ID     |
+| `GET`       | `http://localhost:8000/users/{userId}`                     | Get User by ID        |
+| `DELETE`    | `http://localhost:8000/users/{userId}`                     | Delete User by ID     |
+| `GET`       | `http://localhost:8000/users/offset/{offset}/limit/{limit}` | Get All Users with Paging |
+
+---
